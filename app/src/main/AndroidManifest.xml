@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.wxz.share">
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+       <!--wx的配置-->
+        <activity
+            android:name=".wx.WXMainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTask">
+
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="sdksample" />
+            </intent-filter>
+        </activity>
+
+        <!--这里的WXEntryActivity的路径必须是在你的applicationId配置的路径下-->
+        <activity
+            android:name="net.sourceforge.simcpux.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:taskAffinity="net.sourceforge.simcpux"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--        android:taskAffinity="net.sourceforge.simcpux"-->
+        <activity
+            android:name=".wx.SendToWXActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:theme="@style/MMTheme.Basic"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+
+        <activity
+            android:name=".wx.GetFromWXActivity"
+            android:label="@string/app_name"
+            android:theme="@style/MMTheme.Basic" />
+
+        <activity
+            android:name=".wx.ShowFromWXActivity"
+            android:label="@string/app_name"
+            android:theme="@style/MMTheme.Basic" />
+
+        <activity
+            android:name=".wx.SubscribeMessageActivity"
+            android:label="@string/subscribe_message"
+            android:theme="@style/MMTheme.Basic" />
+
+        <activity
+            android:name=".wx.SubscribeMiniProgramMsgActivity"
+            android:label="@string/subscribe_message"
+            android:theme="@style/MMTheme.Basic" />
+
+        <activity
+            android:name=".wx.UserInfoActivity"
+            android:label="@string/app_name"
+            android:theme="@style/MMTheme.Basic" />
+
+        <receiver
+            android:name=".wx.AppRegister"
+            android:permission="com.tencent.mm.plugin.permission.SEND">
+            <intent-filter>
+                <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP" />
+            </intent-filter>
+        </receiver>
+
+        <!--wx的配置-->
+        <!--QQ的配置-->
+        <activity
+            android:name=".qq.activitys.QQMainActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/title_activity_main" >
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+
+<!--        <receiver-->
+<!--            android:name="com.tencent.sample.AppRegister"-->
+<!--            android:permission="com.tencent.mm.plugin.permission.SEND" >-->
+<!--            <intent-filter>-->
+<!--                <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP" />-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
+        <!-- 应用吧 -->
+        <activity
+            android:name="com.tencent.open.yyb.AppbarActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name="com.tencent.connect.avatar.ImageActivity" />
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name=".qq.ReturnActivity"
+            android:label="@string/title_activity_return" >
+        </activity>
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!--注意，这里的222222要换成app自己的appid-->
+                <data android:scheme="tencent222222" />
+                <!-- 100380359 100381104 222222 -->
+            </intent-filter>
+        </activity>
+        <!-- zivon add start -->
+        <activity
+            android:name=".qq.activitys.AccountInfoActivity"
+            android:configChanges="orientation|keyboardHidden" />
+
+        <activity
+            android:name=".qq.activitys.QQShareActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".qq.activitys.QZoneShareActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <!-- zivon add end -->
+
+
+        <!-- stev add start -->
+
+        <activity
+            android:name=".qq.activitys.OtherApiActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".qq.activitys.AvatarActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".qq.activitys.EmotionActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <!-- stev add end -->
+        <!--QQ的配置-->
+    </application>
+
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- for mta statistics -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- SDK2.1新增获取用户位置信息 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+
+</manifest>
